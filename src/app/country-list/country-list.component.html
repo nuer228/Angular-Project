@@ -44,20 +44,20 @@
   </mat-sidenav>
 <router-outlet></router-outlet>
 <mat-toolbar>Country List</mat-toolbar>
-<mat-accordion multi="true" *ngIf="posts.length > 0">
-  <mat-expansion-panel [expanded]="true" *ngFor="let post of posts">
+<mat-accordion multi="true" *ngIf="send.length > 0">
+  <mat-expansion-panel [expanded]="true" *ngFor="let send of send">
       <!–– Sets a table that pulls entities from MangoDB and allows us to read them in table format -->
           <table class="d">
   
               <tr>
-                <td> {{ post.country }} </td>
-                <td> {{ post.capital }}</td>
-                <td> {{ post.population }}</td>
-                <td>  <button mat-raised-button [routerLink]="['/edit', post._id]" color="primary">Edit</button>&nbsp;&nbsp;<button mat-raised-button (click)="onDelete(post._id)" color="warn">Delete</button></td>
+                <td> {{ send.country }} </td>
+                <td> {{ send.capital }}</td>
+                <td> {{ send.population }}</td>
+                <td>  <button mat-raised-button [routerLink]="['/edit', send._id]" color="primary">Edit</button>&nbsp;&nbsp;<button mat-raised-button (click)="onDelete(send._id)" color="warn">Delete</button></td>
      
               </tr>
             </table>      
-<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p> 
+<p class="info-text mat-body-1" *ngIf="send.length <= 0">No posts added yet!</p> 
 
 
   

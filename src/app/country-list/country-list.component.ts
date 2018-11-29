@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {PostService} from '../services/post.service';
+import {SendService} from '../services/send.service';
 import { Observable } from 'rxjs';
-import {Post} from '../post.model';
+import {Send} from '../send.model';
 import {Router, ActivatedRoute} from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
@@ -21,20 +21,20 @@ export class CountryListComponent implements OnInit {
   expandHeight = '42px';
   collapseHeight = '42px';
   displayMode = 'flat';
-  posts: any = [];
+  send: any = [];
 
-  constructor(private ps:PostService){}
+  constructor(private ps:SendService){}
 
   ngOnInit(){
 // Allows us to read data from MangoDB
-    this.ps.getPostsData().subscribe(data => {
-        this.posts = data;
+    this.ps.getSendData().subscribe(data => {
+        this.send = data;
     });
    }
 // Deletes item from MangoDB
    onDelete(id:String){
      console.log("Delete called "+ id);
-     this.ps.deletePost(id).subscribe(() =>
+     this.ps.deleteSend(id).subscribe(() =>
      {
         this.ngOnInit();
      })
