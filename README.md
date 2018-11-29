@@ -1,3 +1,1 @@
-"# Angular-Project" 
-"# Angular-Project" 
-"# Angular-Project" 
+** My Angular project for the Data Representation module. **
