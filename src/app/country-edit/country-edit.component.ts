@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { Router } from '@angular/router/src/router';
 import { ActivatedRoute } from '@angular/router';
 import { RouterModule, Routes, Router } from '@angular/router';
-import {SendService} from '../services/send.service';
+import {SendService} from '../send.service';
 import { NgForm } from "@angular/forms";
 
 
