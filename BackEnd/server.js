@@ -10,12 +10,12 @@ var mongoDB = 'mongodb://nuer:kristaps123@ds211774.mlab.com:11774/nuer';
 mongoose.connect(mongoDB);
 
 var Schema = mongoose.Schema;
-var postSchema = new Schema({
+var sendSchema = new Schema({
     country: String,
     capital: String,
     population: String
 })
-var PostModel = mongoose.model('post', postSchema);
+var SendModel = mongoose.model('send', sendSchema);
 
 
 //Here we are configuring express to use body-parser as middle-ware. 
@@ -40,13 +40,13 @@ app.get('/', function (req, res) {
    res.send('Hello from Express');
 })
 
-app.post('/api/posts', function(req, res){
-    console.log("post successful");
+app.post('/api/send', function(req, res){
+    console.log("send successful");
     console.log(req.body.country);
     console.log(req.body.capital);
     console.log(req.body.population);
 
-    PostModel.create({
+    SendModel.create({
         country: req.body.country,
         capital: req.body.capital,
         population: req.body.population
@@ -56,38 +56,38 @@ app.post('/api/posts', function(req, res){
 
 })
 
-app.get('/api/posts', function(req, res){
-    PostModel.find(function(err, data){
+app.get('/api/send', function(req, res){
+    SendModel.find(function(err, data){
         res.json(data);
     });
 })
 
-app.get('/api/posts/:id', function(req, res){
-    console.log("Read post " +req.params.id);
+app.get('/api/send/:id', function(req, res){
+    console.log("Read send " +req.params.id);
 
-    //PostModel.find({_id : req.params.id}, 
-    PostModel.findById(req.params.id,
+
+    SendModel.findById(req.params.id,
         function (err, data) {
             res.json(data);
         });
 })
 
-app.put('/api/posts/:id', function(req, res){
-    console.log("Update Post" +req.params.id);
+app.put('/api/send/:id', function(req, res){
+    console.log("Update Send" +req.params.id);
     console.log(req.body.country);
     console.log(req.body.capital);
     console.log(req.body.population);
 
-    PostModel.findByIdAndUpdate(req.params.id, req.body, 
+    SendModel.findByIdAndUpdate(req.params.id, req.body, 
         function(err, data){
             res.send(data);
         })
 })
 
-app.delete('/api/posts/:id', function(req, res){
+app.delete('/api/send/:id', function(req, res){
     console.log(req.params.id);
 
-    PostModel.deleteOne({_id:req.params.id},
+    SendModel.deleteOne({_id:req.params.id},
     function(err, data)
     {
         if(err)
