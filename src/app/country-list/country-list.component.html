@@ -53,8 +53,8 @@
                 <td> {{ post.country }} </td>
                 <td> {{ post.capital }}</td>
                 <td> {{ post.population }}</td>
-                <td> <button mat-raised-button [routerLink]="['/edit', post._id]" color="primary">Edit</button></td>
-                <td> <button mat-raised-button (click)="onDelete(post._id)" color="warn">Delete</button> </td>
+                <td>  <button mat-raised-button [routerLink]="['/edit', post._id]" color="primary">Edit</button>&nbsp;&nbsp;<button mat-raised-button (click)="onDelete(post._id)" color="warn">Delete</button></td>
+     
               </tr>
             </table>      
 <p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p> 
