@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import {SendService} from '../services/send.service';
+import {SendService} from '../send.service';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs';
