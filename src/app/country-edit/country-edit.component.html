@@ -46,13 +46,13 @@
   
     <mat-toolbar>Edit Entry</mat-toolbar>
 <mat-card>
-  <form (submit)="onEditPost(postForm)" #postForm="ngForm">
+  <form (submit)="onEditSend(sendForm)" #sendForm="ngForm">
     <mat-form-field>
       <input
         matInput
         type="text"
         name="country"
-        ngModel={{post.country}}
+        ngModel={{send.country}}
         required
         #country="ngModel"
         >
@@ -62,7 +62,7 @@
           matInput
           type="text"
           name="capital"
-          ngModel={{post.capital}}
+          ngModel={{send.capital}}
           required
           #capital="ngModel"
           >
@@ -72,7 +72,7 @@
           matInput
           type="text"
           name="population"
-          ngModel={{post.population}}
+          ngModel={{send.population}}
           required
           #population="ngModel"
           >

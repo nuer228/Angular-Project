@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { Router } from '@angular/router/src/router';
 import { ActivatedRoute } from '@angular/router';
 import { RouterModule, Routes, Router } from '@angular/router';
-import {PostService} from '../services/post.service';
+import {SendService} from '../services/send.service';
 import { NgForm } from "@angular/forms";
 
 
@@ -15,7 +15,7 @@ import { NgForm } from "@angular/forms";
 // Gets strings and finds out which ID needs to be edited.
 
 export class CountryEditComponent implements OnInit {
-  post : any = [];
+  send : any = [];
   myCountry : String; 
   myCapital : String; 
   opened = true;
@@ -23,24 +23,24 @@ export class CountryEditComponent implements OnInit {
   expandHeight = '42px';
   collapseHeight = '42px';
   displayMode = 'flat';
-  constructor(private router:Router, private route: ActivatedRoute, private service:PostService) { }
+  constructor(private router:Router, private route: ActivatedRoute, private service:SendService) { }
 
 
   // Finds ID
   ngOnInit() {
     console.log(this.route.snapshot.params['id']);
-    this.service.getPost(this.route.snapshot.params['id']).subscribe(data =>
+    this.service.getSend(this.route.snapshot.params['id']).subscribe(data =>
     {
-      this.post = data;
-      console.log(this.post);
-      this.myCountry = this.post.country;
+      this.send = data;
+      console.log(this.send);
+      this.myCountry = this.send.country;
       console.log("message" +this.myCountry);
 
     });
   }
 
-  onEditPost(form: NgForm) {
-    this.service.updatePost(this.post._id, form.value.country, form.value.capital, form.value.population).subscribe(() =>
+  onEditSend(form: NgForm) {
+    this.service.updateSend(this.send._id, form.value.country, form.value.capital, form.value.population).subscribe(() =>
     {
       this.router.navigate(['/list']);
     });
