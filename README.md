@@ -1,1 +1,1 @@
-**My Angular project for the Data Representation module.**
+ align:center"> **My Angular project for the Data Representation module.**
