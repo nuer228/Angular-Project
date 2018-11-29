@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
-import { PostService } from '../services/post.service';
+import { SendService } from '../services/send.service';
 import { Observable } from 'rxjs';
-import { Post } from '../post.model';
+import { Send } from '../send.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NewsApiService } from '../news-api.service';
 
