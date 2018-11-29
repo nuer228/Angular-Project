@@ -1,4 +1,4 @@
-**My Angular project for the Data Representation module.**
+ **My Angular project for the Data Representation module.**
 
 
 
@@ -24,12 +24,12 @@ You can also change the provider of the news by clicking on the side menu of the
 
 ![alt text](https://i.imgur.com/AMrSQTj.jpg)
 
-For my READ I made a list of countries and put them into a table. This is what it looks like:
+For my READ I made a list of countries and put them into a table. You can UPDATE and DELETE from here. This is what it looks like: 
 
 ![alt text](https://i.imgur.com/BGg6A2x.jpg)
 
 
-You can also insert a new country or edit a current one.
+You can also CREATE a new country or edit a current one.
 
 ![alt text](https://i.imgur.com/mSltVAM.png)
 ![alt text](https://i.imgur.com/xnqO3P7.jpg)
