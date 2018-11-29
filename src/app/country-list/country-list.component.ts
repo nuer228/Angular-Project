@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SendService} from '../services/send.service';
+import {SendService} from '../send.service';
 import { Observable } from 'rxjs';
 import {Send} from '../send.model';
 import {Router, ActivatedRoute} from '@angular/router';
