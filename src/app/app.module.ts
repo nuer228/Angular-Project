@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CountryListComponent } from './country-list/country-list.component';
-import  {PostService } from './services/post.service';
+import  {SendService } from './send.service';
 import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -87,7 +87,7 @@ const appRoutes: Routes = [
   MatMenuModule,
   ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [PostService],
+  providers: [SendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

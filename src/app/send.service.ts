@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Send} from '../send.model';
+import {Send} from './send.model';
 //import { Stream } from 'stream';
 
 @Injectable({
