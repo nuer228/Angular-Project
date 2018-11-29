@@ -1,0 +1,83 @@
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav [(mode)]="over" [(opened)]="opened" class="bottom-to-top">
+    <div class="my-2" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <div class="with-bg"></div>
+      <div>
+        <a>
+          <img class="circle" src="./assets/images/profile.jpg" width="100">
+        </a>
+      </div>
+    </div>
+    <div style="background-color: #03557a !important;" class="mt-2 py-3 text-white" fxLayout="column" fxLayoutAlign="center center"
+      fxLayoutGap="7px">
+      <div>
+        <a>
+          <span class="lead">Kristaps Rutkovskis</span>
+        </a>
+      </div>
+      <div>
+      </div>
+    </div>
+<!–– Adds a Navigation Bar on the left side of the page with clickable entities that sends you to different pages -->
+    <div class="mt-3">
+      <mat-nav-list href="menu.component.html" >
+        <a mat-list-item class="ml-2"  style="font-size:20px;">
+          Home
+        </a>
+      </mat-nav-list>
+      <mat-nav-list [routerLink]="['/create']" >
+        <a mat-list-item class="ml-2"  style="font-size:20px;">
+          Add Entry
+        </a>
+      </mat-nav-list>
+      <mat-nav-list [routerLink]="['/list']" >
+        <a mat-list-item class="ml-2"  style="font-size:20px;">
+          Country List
+        </a>
+      </mat-nav-list>
+      <mat-nav-list [routerLink]="['/query']" >
+        <a mat-list-item class="ml-2"  style="font-size:20px;">
+          Contact
+        </a>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <!––  Adds news articles that are pulled from the API and refreshed every few minutes. -->
+  <mat-toolbar color="warn">
+      <button mat-button (click)="sidenav.open ()" ><mat-icon>menu</mat-icon></button>
+      <span>News Headlines</span>  
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav #sidenav class="example-sidenav">
+        <mat-list class="list-nav">
+            <mat-list-item class="list-item" *ngFor="let source of mSources" (click)="searchArticles(source.id);sidenav.close();">
+              
+              <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ source.id +'.png)'}" class="example-header-image"></div>
+              
+              <span class="source-name"> {{source.name}}</span>
+            
+            </mat-list-item>
+        </mat-list>
+      </mat-sidenav>
+      <mat-card class="example-card"  *ngFor="let article of mArticles">
+        <mat-card-header>
+          <div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}" class="example-header-image"></div>
+          <mat-card-title class="title">{{article.title}}</mat-card-title>
+          <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
+        <mat-card-content>
+          <p>
+            {{article.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions class="action-buttons">
+          <button mat-button color="primary"><mat-icon>thumb_up_alt</mat-icon> 0 Likes</button>
+          <button mat-button color="primary"><mat-icon>comment</mat-icon> Comments</button>
+          <button mat-button color="primary"><mat-icon>share</mat-icon> Share</button>
+          <a mat-button color="primary" href={{article.url}} target="_blank" ><mat-icon>visibility</mat-icon> More</a>
+        </mat-card-actions>
+      </mat-card>
+    </mat-sidenav-container>

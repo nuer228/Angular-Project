@@ -1,0 +1,63 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav [(mode)]="over" [(opened)]="opened" class="bottom-to-top">
+    <div class="my-2" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <div class="with-bg"></div>
+      <div>
+        <a>
+          <img class="circle" src="./assets/images/profile.jpg" width="100">
+        </a>
+      </div>
+    </div>
+    <div style="background-color: #03557a !important;" class="mt-2 py-3 text-white" fxLayout="column" fxLayoutAlign="center center"
+      fxLayoutGap="7px">
+      <div>
+        <a>
+          <span class="lead">Kristaps Rutkovskis</span>
+        </a>
+      </div>
+      <div>
+      </div>
+    </div>
+    <!–– Adds a Navigation Bar on the left side of the page with clickable entities that sends you to different pages -->
+    <div class="mt-3">
+      <mat-nav-list [routerLink]="['/menu']" >
+        <a mat-list-item class="ml-2"  style="font-size:20px;">
+          Home
+        </a>
+      </mat-nav-list>
+      <mat-nav-list [routerLink]="['/create']" >
+        <a mat-list-item class="ml-2"  style="font-size:20px;">
+          Add Entry
+        </a>
+      </mat-nav-list>
+      <mat-nav-list [routerLink]="['/list']" >
+        <a mat-list-item class="ml-2"  style="font-size:20px;">
+          Country List
+        </a>
+      </mat-nav-list>
+      <mat-nav-list [routerLink]="['/query']" >
+        <a mat-list-item class="ml-2"  style="font-size:20px;">
+          Contact
+        </a>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+<router-outlet></router-outlet>
+<mat-toolbar>Country List</mat-toolbar>
+<mat-accordion multi="true" *ngIf="posts.length > 0">
+  <mat-expansion-panel [expanded]="true" *ngFor="let post of posts">
+      <!–– Sets a table that pulls entities from MangoDB and allows us to read them in table format -->
+          <table class="d">
+  
+              <tr>
+                <td> {{ post.country }} </td>
+                <td> {{ post.capital }}</td>
+                <td> {{ post.population }}</td>
+                <td> <button mat-raised-button [routerLink]="['/edit', post._id]" color="primary">Edit</button></td>
+                <td> <button mat-raised-button (click)="onDelete(post._id)" color="warn">Delete</button> </td>
+              </tr>
+            </table>      
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p> 
+
+
+  
