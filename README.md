@@ -19,3 +19,7 @@ node server.js
 This is the main home page that opens up. It uses a navigation bar on the left of the page and also a News API which uploads news articles live. 
 
 ![alt text](https://i.imgur.com/y58OaAB.jpg)
+
+You can also change the provider of the news by clicking on the side menu of the News Headlines. This is what it looks like:
+
+![alt text](https://i.imgur.com/AMrSQTj.jpg)
